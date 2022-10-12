@@ -32,6 +32,9 @@ Abra o terminal na pasta raíz do projeto e digite:
 >  `docker-compose up`
 
 ### **Verificar inserção dos dados no banco de dados**
+> **Note**
+> Os dados são gravados de uma única vez no banco de dados, por isso podem demorar alguns minutos para aparecer alguma informação na tabela.
+
 Abra o navegador e digite:
 > `localhost:16543`
 
