@@ -13,7 +13,7 @@ services:
     ports:
       - "${PORT}:${PORT}"
     environment:
-      - POSTGRES_USER=${USER}
+      - POSTGRES_USER=${USERNAME}
       - POSTGRES_PASSWORD=${PASSWORD}
       - DB_NAME=${DATABASE_NAME}
       - TB_NAME=${TABLE_NAME}

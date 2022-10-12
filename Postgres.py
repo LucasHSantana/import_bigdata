@@ -7,7 +7,7 @@ class PostgresConnection():
         self._host = host if host else getenv('HOST')
         self._database = database if database else getenv('DATABASE_NAME')
         self._port = port if port else getenv('PORT')
-        self._user = user if user else getenv('USER')
+        self._user = user if user else getenv('USERNAME')
         self._pass = password if password else getenv('PASSWORD')
 
         self._conn = None
