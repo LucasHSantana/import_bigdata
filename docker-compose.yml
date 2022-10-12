@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  postgis:
+    container_name: postgres
+    # image: "postgis/postgis:11-2.5-alpine"
+    image: "postgres"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always    
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - POSTGRES_USER=${USER}
+      - POSTGRES_PASSWORD=${PASSWORD}
+      - DB_NAME=${DATABASE_NAME}
+      - TB_NAME=${TABLE_NAME}
+    volumes:
+      - ./sql/create_database.sh:/docker-entrypoint-initdb.d/create_database.sh
+    networks:
+      - postgres-compose-network
+
+  pgadmin-compose:
+    container_name: pg-admin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgis
+    networks:
+      - postgres-compose-network    
+
+networks:
+  postgres-compose-network:
+    driver: bridge
