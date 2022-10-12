@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   postgis:
-    container_name: postgres
+    container_name: postgres_import_bigdata
     # image: "postgis/postgis:11-2.5-alpine"
     image: "postgres"
     healthcheck:
@@ -23,7 +23,7 @@ services:
       - postgres-compose-network
 
   pgadmin-compose:
-    container_name: pg-admin
+    container_name: pg-admin_import_bigdata
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: "postgres@gmail.com"
@@ -36,7 +36,7 @@ services:
       - postgres-compose-network    
 
   python-38:
-    container_name: python
+    container_name: python_import_bigdata
     image: python:3.8
     command: bash -c "
       pip install requests psycopg2 sqlalchemy

@@ -3,6 +3,11 @@
 ## Projeto
 O projeto tem como finalidade demonstrar a utilização e criação de containers docker utilizando docker-compose para inserir grande quantidade de dados num banco de dados postgreSQL.
 
+Será baixado um arquivo csv com 71 milhões de linhas e realizado inserção no banco de dados.
+
+> **Note**
+> Esta operação pode levar alguns minutos dependendo do hardware.
+
 ## Tecnologias utilizadas
 - [Python 3.8](https://www.python.org/)
 - [Docker](https://www.docker.com/)
