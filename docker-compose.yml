@@ -35,6 +35,23 @@ services:
     networks:
       - postgres-compose-network    
 
+  python-38:
+    container_name: python
+    image: python:3.8
+    command: bash -c "
+      pip install requests psycopg2 sqlalchemy
+      && python -u import_data_psycopg2.py"
+    volumes:
+      - .:/codes
+      - ./data:/opt/data
+    working_dir: /codes
+    env_file:
+      .env
+    depends_on:
+      - postgis
+    networks:
+      - postgres-compose-network
+
 networks:
   postgres-compose-network:
     driver: bridge
