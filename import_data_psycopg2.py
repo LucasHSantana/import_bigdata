@@ -2,7 +2,6 @@ import requests
 import os
 import shutil
 import time
-import csv
 from Postgres import PostgresConnection
 
 
